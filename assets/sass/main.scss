@@ -11,13 +11,44 @@ body {
   min-height: 100vh;
 }
 
+.h-custom {
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    @media screen and (max-width: 1366px) {
+      max-width: 1280px;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: 1000px;
+      padding: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .h-left {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      p {
+        text-align: justify;
+      }
+    }
+  }
+}
+
 .slider {
   display: flex;
-
+  width: 100%;
   align-items: center;
   justify-content: center;
-
-  width: max-content;
   height: 370px;
   overflow: hidden;
   position: relative;
@@ -70,7 +101,13 @@ body {
     justify-content: center;
 
     img {
-      width: 150px;
+      width: 120px;
+      height: 50px;
+      object-fit: contain;
+
+      @media screen and (max-width: 500px) {
+        width: 100px;
+      }
     }
   }
 }
