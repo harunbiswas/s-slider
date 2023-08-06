@@ -8,9 +8,8 @@ const leftNodes = document.querySelectorAll("#h-left>.slider-item");
 const sliderHeight = slider.offsetHeight;
 const rightHeight = right.offsetHeight;
 const leftHeight = left.offsetHeight;
-const nodeHeight = Math.floor(rightHeight / rightNodes.length) + 1;
-
-console.log(Math.floor(nodeHeight));
+const nodeHeightRight = Math.floor(rightHeight / rightNodes.length) + 1;
+const nodeHeightLeft = Math.floor(leftHeight / leftNodes.length) + 1;
 
 let rihtup = rightHeight - sliderHeight;
 let leftup = 0;
@@ -21,9 +20,9 @@ right.style.transform = `translateY(-${rihtup}px)`;
 
 const rightHandler = () => {
   if (rihtup >= 0 && !isRightUp) {
-    rihtup = rihtup - nodeHeight;
+    rihtup = rihtup - nodeHeightRight;
   } else if (rihtup < rightHeight - sliderHeight && isRightUp) {
-    rihtup = rihtup + nodeHeight;
+    rihtup = rihtup + nodeHeightRight;
   }
 
   if (rihtup <= 0) {
@@ -40,10 +39,10 @@ const rightHandler = () => {
 };
 
 const leftHandler = () => {
-  if (leftup < leftHeight - sliderHeight && isLeftUp) {
-    leftup = leftup + nodeHeight;
+  if (leftup <= leftHeight - sliderHeight && isLeftUp) {
+    leftup = leftup + nodeHeightLeft;
   } else if (leftup > 0 && !isLeftUp) {
-    leftup = leftup - nodeHeight;
+    leftup = leftup - nodeHeightLeft;
   }
 
   if (leftup >= leftHeight - sliderHeight) {

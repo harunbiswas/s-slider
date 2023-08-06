@@ -82,3 +82,6 @@ body {
       @media screen and (max-width: 500px) {
         .slider-item img {
           width: 100px; } }
+  .slider-item-1 {
+    height: 72px;
+    border: none; }
