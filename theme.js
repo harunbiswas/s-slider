@@ -41,7 +41,7 @@ const rightHandler = () => {
 const leftHandler = () => {
   if (leftup <= leftHeight - sliderHeight && isLeftUp) {
     leftup = leftup + nodeHeightLeft;
-  } else if (leftup > 0 && !isLeftUp) {
+  } else if (leftup >= 0 && !isLeftUp) {
     leftup = leftup - nodeHeightLeft;
   }
 
@@ -57,4 +57,6 @@ const leftHandler = () => {
 setInterval(() => {
   rightHandler();
   leftHandler();
+
+  console.log(nodeHeightRight, nodeHeightLeft);
 }, 2000);
